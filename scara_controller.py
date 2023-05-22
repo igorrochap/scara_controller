@@ -221,10 +221,12 @@ if __name__ == "__main__":
     while scara.step() != -1:
         # TODO
         # Implement your code here
-       hold_duck(scara)
-       release_duck(scara)
-                
-       break
+       try:
+           hold_duck(scara)
+           release_duck(scara)
+       except ValueError as exception:
+           print(exception)
+       finally:
+           break
 
     # Enter here exit cleanup code.
-
